@@ -1,0 +1,154 @@
+/* src/app/linha-tempo/linha-tempo.component.scss */
+.timeline-container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+
+  h2 {
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    font-size: 1.8rem;
+  }
+
+  .timeline-item {
+    border-left: 3px solid #1976d2;
+    margin-left: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background-color: #1976d2;
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+    }
+
+    .timeline-date {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .timeline-content {
+      background: #f0f4f8;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      line-height: 1.4;
+      color: #333;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+
+      strong {
+        color: #0d47a1;
+        font-weight: 700;
+      }
+
+      em {
+        color: #1976d2;
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      small {
+        color: #777;
+        display: block;
+        margin-top: 4px;
+      }
+    }
+  }
+
+  /* Mensagem caso não haja alterações */
+  div[ng-reflect-ng-if="true"] {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+    margin-top: 2rem;
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+  .timeline-container {
+    padding: 0.8rem 1rem;
+    max-width: 100%;
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .timeline-item {
+      margin-left: 0.5rem;
+      padding-left: 0.8rem;
+
+      &::before {
+        left: -8px;
+        top: 7px;
+        width: 12px;
+        height: 12px;
+      }
+
+      .timeline-date {
+        font-size: 0.8rem;
+      }
+
+      .timeline-content {
+        font-size: 0.95rem;
+        padding: 0.6rem 0.8rem;
+      }
+    }
+  }
+}
+
+.titulo-icone {
+  font-size: 2.1rem;
+  vertical-align: middle;
+  color: #1976d2;
+  margin-right: 0.5rem;
+}
+
+.form-group label .material-icons,
+th .th-icone {
+  font-size: 1.1rem;
+  vertical-align: middle;
+  margin-right: 0.2rem;
+  color: #2196f3;
+}
+
+.form-actions button .material-icons {
+  font-size: 1.1rem;
+  vertical-align: middle;
+  margin-right: 0.2rem;
+}
+
+.success-msg .material-icons,
+.error-msg .material-icons {
+  font-size: 1.1rem;
+  vertical-align: middle;
+  margin-right: 0.2rem;
+}
+
+.servidor-lista th .th-icone {
+  color: #1976d2;
+}
+
+@media (max-width: 600px) {
+  .titulo-icone {
+    font-size: 1.3rem;
+  }
+  .form-group label .material-icons,
+  th .th-icone {
+    font-size: 0.95rem;
+  }
+}

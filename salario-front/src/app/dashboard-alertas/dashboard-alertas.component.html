@@ -1,0 +1,106 @@
+<div class="dashboard-alertas-wrapper">
+
+  <!-- Summary Cards -->
+  <div class="summary-cards">
+    <div class="summary-card">
+      <span class="material-icons card-icon card-icon-danger">warning</span>
+      <div>
+        <div class="card-value">{{ totalAlertas }}</div>
+        <div class="card-label">Alertas de Fraude</div>
+      </div>
+    </div>
+    <div class="summary-card" (click)="verSuspeitasNaLinhaTempo()" style="cursor:pointer;">
+      <span class="material-icons card-icon card-icon-warning">report_problem</span>
+      <div>
+        <div class="card-value">{{ totalSuspeitas }}</div>
+        <div class="card-label">Alterações Suspeitas</div>
+      </div>
+    </div>
+    <div class="summary-card">
+      <span class="material-icons card-icon card-icon-success">verified_user</span>
+      <div>
+        <div class="card-value">{{ totalSemRisco }}</div>
+        <div class="card-label">Sem Risco</div>
+      </div>
+    </div>
+    <div class="summary-card">
+      <span class="material-icons card-icon card-icon-info">visibility</span>
+      <div>
+        <div class="card-value">{{ totalAlteracoes }}</div>
+        <div class="card-label">Total de Processos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicadores/Widgets -->
+  <div class="indicadores-widgets">
+    <div class="indicador-widget">
+      <span class="material-icons widget-icon widget-icon-danger">trending_up</span>
+      <div>
+        <div class="widget-label">Tendência de Fraudes</div>
+        <div class="widget-value">+8% este mês</div>
+      </div>
+    </div>
+    <div class="indicador-widget">
+      <span class="material-icons widget-icon widget-icon-success">check_circle</span>
+      <div>
+        <div class="widget-label">Taxa de Resolução</div>
+        <div class="widget-value">92%</div>
+      </div>
+    </div>
+    <div class="indicador-widget">
+      <span class="material-icons widget-icon widget-icon-info">timer</span>
+      <div>
+        <div class="widget-label">Tempo Médio de Resposta</div>
+        <div class="widget-value">2h 15min</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Gráficos -->
+  <div class="graficos-container">
+    <!-- Gráfico de Tendência de Fraudes -->
+    <div class="alerta-card">
+      <div class="card-header">
+        <h3>Tendência de Fraudes</h3>
+        <p>Últimos 7 dias</p>
+      </div>
+      <div class="chart-area">
+        <canvas baseChart
+                [data]="fraudTrendChartData"
+                [options]="fraudTrendChartOptions"
+                [type]="'bar'">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico de Distribuição de Alterações -->
+    <div class="alerta-card">
+      <div class="card-header">
+        <h3>Distribuição de Alterações</h3>
+        <p>Por tipo de alteração</p>
+      </div>
+      <div class="chart-area">
+        <canvas baseChart
+                [data]="alteracoesDistributionChartData"
+                [options]="alteracoesDistributionChartOptions"
+                [type]="'pie'">
+        </canvas>
+      </div>
+    </div>
+
+    <!-- Gráfico de Monitoramento de Riscos (existente) -->
+    <div class="alerta-card">
+      <div class="card-header">
+        <h3>Monitoramento de Riscos</h3>
+        <p>Distribuição atual de eventos classificados</p>
+      </div>
+      <div class="chart-area">
+        <canvas baseChart
+                [data]="chartData"
+                [options]="chartOptions">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

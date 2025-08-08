@@ -1,0 +1,182 @@
+.alerta-card {
+  width: 100%;
+  max-width: 340px;
+  background: #f9f9f9;
+  border-radius: 14px;
+  padding: 1rem 0.7rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: auto;
+
+  .card-header {
+    text-align: center;
+
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: #222;
+    }
+
+    p {
+      font-size: 0.7rem;
+      color: #666;
+    }
+
+    .material-icons {
+      font-size: 1rem;
+      margin-right: 0.2rem;
+      vertical-align: middle;
+    }
+  }
+
+  .chart-area {
+    position: relative;
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: flex-start;  /* Alinha o gráfico ao topo */
+    justify-content: flex-start; /* Alinha o gráfico à esquerda */
+    /* opcional: para garantir que o canvas não fique centralizado */
+    canvas {
+      margin-left: 0;
+      margin-right: auto;
+      display: block;
+      max-width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 480px) {
+      height: 110px;
+    }
+  }
+ }
+ 
+ .graficos-container {
+   display: flex;
+   gap: 1.5rem;
+   flex-wrap: wrap;
+   justify-content: space-between;
+   
+   .alerta-card {
+     flex: 1 1 300px; // Allow cards to grow and shrink, with a minimum width of 300px
+     max-width: none; // Remove the max-width restriction
+   }
+ }
+ 
+ .dashboard-alertas-wrapper {
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+   align-items: stretch;
+   width: 100%;
+   max-width: 1200px; // Increase max-width to accommodate the new charts
+   margin: 0 auto;
+ }
+
+.summary-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.summary-card {
+  flex: 1 1 110px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #1976d210;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.2rem;
+  min-width: 160px;
+  margin-bottom: 0.5rem;
+  transition: box-shadow 0.18s;
+  border-left: 6px solid #1976d2;
+
+  &:hover {
+    box-shadow: 0 8px 24px #1976d220;
+    transform: translateY(-2px) scale(1.03);
+  }
+
+  .card-icon {
+    font-size: 2.2rem;
+    opacity: 0.85;
+    border-radius: 50%;
+    padding: 0.3rem;
+    background: #f4f6fa;
+    margin-right: 0.5rem;
+  }
+  .card-icon-danger { color: #e53935; }
+  .card-icon-warning { color: #ffb300; }
+  .card-icon-success { color: #06d6a0; }
+  .card-icon-info { color: #1976d2; }
+
+  .card-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1976d2;
+  }
+  .card-label {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+  }
+}
+
+.indicadores-widgets {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.indicador-widget {
+  flex: 1 1 220px;
+  background: #f9f9f9;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px #1976d210;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  min-width: 180px;
+  margin-bottom: 0.5rem;
+  border-left: 5px solid #2196f3;
+
+  .widget-icon {
+    font-size: 2rem;
+    opacity: 0.85;
+    border-radius: 50%;
+    padding: 0.2rem;
+    background: #e3f2fd;
+    margin-right: 0.5rem;
+  }
+  .widget-icon-danger { color: #e53935; }
+  .widget-icon-success { color: #06d6a0; }
+  .widget-icon-info { color: #1976d2; }
+
+  .widget-label {
+    font-size: 1rem;
+    color: #444;
+    font-weight: 500;
+  }
+  .widget-value {
+    font-size: 1.1rem;
+    color: #1976d2;
+    font-weight: 600;
+  }
+}
+
+@media (max-width: 900px) {
+  .summary-cards, .indicadores-widgets {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .summary-card, .indicador-widget {
+    min-width: 0;
+  }
+}

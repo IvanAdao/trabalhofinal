@@ -1,0 +1,93 @@
+<div class="servidor-container">
+  <h2>
+    <span class="material-icons titulo-icone">badge</span>
+    Cadastro de Servidor Público
+  </h2>
+
+  <form [formGroup]="servidorForm" (ngSubmit)="onSubmit()" class="servidor-form">
+    <div class="form-grid">
+      <div class="form-group">
+        <label><span class="material-icons">person</span> Nome Completo:</label>
+        <input formControlName="nomeCompleto" type="text" />
+      </div>
+      <div class="form-group">
+        <label><span class="material-icons">fingerprint</span> NUIT:</label>
+        <input formControlName="nuit" type="text" />
+      </div>
+      <div class="form-group">
+        <label><span class="material-icons">badge</span> NIF:</label>
+        <input formControlName="nif" type="text" />
+      </div>
+      <div class="form-group">
+        <label><span class="material-icons">work</span> Cargo:</label>
+        <input formControlName="cargo" type="text" />
+      </div>
+      <div class="form-group">
+        <label><span class="material-icons">apartment</span> Orgão:</label>
+        <input formControlName="orgao" type="text" />
+      </div>
+      <div class="form-group">
+        <label><span class="material-icons">payments</span> Salário Base:</label>
+        <input formControlName="salarioBase" type="number" />
+      </div>
+      <div class="form-group full-width">
+        <label><span class="material-icons">toggle_on</span> Estado:</label>
+        <select formControlName="estado">
+          <option value="Activo">Activo</option>
+          <option value="Inactivo">Inactivo</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="servidorForm.invalid">
+        <span class="material-icons">save</span>
+        {{ editando ? 'Actualizar' : 'Salvar' }}
+      </button>
+      <button type="button" (click)="limparFormulario()">
+        <span class="material-icons">clear</span>
+        Limpar
+      </button>
+      <button *ngIf="editando" type="button" (click)="removerServidor()" class="remover-btn">
+        <span class="material-icons">delete</span>
+        Remover
+      </button>
+    </div>
+
+    <p *ngIf="sucesso" class="success-msg">
+      <span class="material-icons">check_circle</span> Servidor cadastrado com sucesso!
+    </p>
+    <p *ngIf="erro" class="error-msg">
+      <span class="material-icons">error</span> {{ erro }}
+    </p>
+  </form>
+
+  <div class="tabela-container">
+    <table class="servidor-lista">
+      <tr>
+        <th><span class="material-icons th-icone">person</span> Nome</th>
+        <th><span class="material-icons th-icone">fingerprint</span> NUIT</th>
+        <th><span class="material-icons th-icone">badge</span> NIF</th>
+        <th><span class="material-icons th-icone">work</span> Cargo</th>
+        <th><span class="material-icons th-icone">apartment</span> Orgão</th>
+        <th><span class="material-icons th-icone">payments</span> Salário</th>
+        <th><span class="material-icons th-icone">toggle_on</span> Estado</th>
+        <th><span class="material-icons th-icone">edit</span> Ações</th>
+      </tr>
+      <tr *ngFor="let servidor of servidores">
+        <td>{{ servidor.nomeCompleto }}</td>
+        <td>{{ servidor.nuit }}</td>
+        <td>{{ servidor.nif }}</td>
+        <td>{{ servidor.cargo }}</td>
+        <td>{{ servidor.orgao }}</td>
+        <td>{{ servidor.salarioBase }}</td>
+        <td>{{ servidor.estado }}</td>
+        <td>
+          <button type="button" (click)="carregarServidorParaEdicao(servidor)">
+            <span class="material-icons">edit</span>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

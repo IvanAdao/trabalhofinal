@@ -1,0 +1,19 @@
+package folhapagamento.salario.service;
+
+import folhapagamento.salario.dto.AlteracaoFolhaDTO;
+import folhapagamento.salario.repository.AlteracoesFolhaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class AlteracoesFolhaService {
+
+    @Autowired
+    private AlteracoesFolhaRepository repository;
+
+    public List<AlteracaoFolhaDTO> listarAlteracoes() {
+        return repository.listarAlteracoesComServidor();
+    }
+}

@@ -1,0 +1,150 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f4f6fa;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.dashboard-header {
+  width: 100%;
+  background: #1976d2;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(25, 118, 210, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.sidebar {
+  width: 200px;
+  background: linear-gradient(135deg, #1976d2 60%, #2196f3 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0.8rem;
+  border-radius: 0 14px 14px 0;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+
+  .sidebar-top {
+    text-align: center;
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .sidebar-user-info {
+      p {
+        margin: 0.15rem 0;
+        font-size: 0.85rem;
+      }
+    }
+  }
+
+  .sidebar-menu {
+    flex: 1;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 0.8rem 1rem;
+        margin-bottom: 0.6rem;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: background 0.2s, transform 0.2s;
+
+        &:hover,
+        &.active {
+          background: rgba(255, 255, 255, 0.12);
+          transform: translateX(6px);
+        }
+      }
+    }
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    text-align: center;
+
+    .logout-btn {
+      background: #e53935;
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px #e5393520;
+      transition: background 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        background: #b71c1c;
+        box-shadow: 0 4px 10px #e5393530;
+      }
+    }
+  }
+}
+
+.dashboard-content {
+  flex: 1;
+  padding: 1.5rem 2rem;
+  min-width: 0;
+  overflow: auto;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.7rem 0.5rem;
+    border-radius: 0;
+
+    .sidebar-top {
+      display: none;
+    }
+
+    .sidebar-menu ul {
+      display: flex;
+      flex-direction: row;
+      gap: 0.8rem;
+
+      li {
+        margin-bottom: 0;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    .sidebar-footer {
+      margin-top: 0;
+
+      .logout-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+        min-width: auto;
+      }
+    }
+  }
+
+  .dashboard-content {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}

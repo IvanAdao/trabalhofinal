@@ -1,0 +1,66 @@
+<div class="user-registration-container">
+  <h2>{{ editingUser ? 'Editar Usuário' : 'Cadastrar Novo Usuário' }}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="submit()">
+    <div>
+      <label>Username:</label>
+      <input formControlName="username" [readonly]="!!editingUser" />
+    </div>
+    <div>
+      <label>Senha:</label>
+      <input type="password" formControlName="password" [placeholder]="editingUser ? 'Deixe em branco para não alterar' : ''" />
+    </div>
+    <div>
+      <label>Perfil:</label>
+      <select formControlName="role">
+        <option value="" disabled>Selecione</option>
+        <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="userForm.invalid">{{ editingUser ? 'Salvar' : 'Criar' }}</button>
+    <button type="button" *ngIf="editingUser" (click)="cancelEdit()">Cancelar</button>
+  </form>
+
+  <h3>Usuários Cadastrados</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Perfil</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.role }}</td>
+        <td>
+          <span [class.enabled]="user.enabled" [class.blocked]="!user.enabled">
+            {{ user.enabled ? 'Ativo' : 'Bloqueado' }}
+          </span>
+        </td>
+        <td>
+          <button (click)="edit(user)">Editar</button>
+          <button (click)="toggleBlock(user)">
+            {{ user.enabled ? 'Bloquear' : 'Desbloquear' }}
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  const payload = {
+    username: this.userForm.value.username,
+    password: this.userForm.value.password,
+    role: this.userForm.value.role
+  };
+
+  var roleOpt = roleRepository.findByName(dto.role);
+  if (roleOpt.isEmpty()) {
+      return ResponseEntity.badRequest().body("Perfil não encontrado");
+  }
+  user.getRoles().add(roleOpt.get());
+  userRepository.save(user);
+</script>

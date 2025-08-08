@@ -1,0 +1,17 @@
+<!-- src/app/linha-tempo/linha-tempo.component.html -->
+<div class="timeline-container">
+  <h2>Linha do Tempo de Alterações</h2>
+
+  <div *ngIf="alteracoes.length === 0">Nenhuma alteração encontrada.</div>
+
+  <div *ngFor="let alt of alteracoes" class="timeline-item" (click)="abrirInvestigacao(alt)">
+    <div class="timeline-date">{{ alt.dataAlteracao | date:'dd/MM/yyyy HH:mm' }}</div>
+    <div class="timeline-content">
+      <strong>{{ alt.nomeServidor }}</strong> alterou o campo <em>{{ alt.campoModificado }}</em><br />
+      De: "{{ alt.valorAnterior }}" para: "{{ alt.valorNovo }}"<br />
+      <small>Motivo: {{ alt.motivo || 'Não informado' }}</small><br />
+      <small *ngIf="alt.ipOrigem">IP: {{ alt.ipOrigem }}</small>
+    </div>
+  </div>
+  
+</div>

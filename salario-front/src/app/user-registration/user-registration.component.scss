@@ -1,0 +1,223 @@
+.user-registration-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.08);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #1976d2;
+    text-align: center;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem 2rem;
+    margin-bottom: 2rem;
+
+    > div {
+      flex: 1 1 260px;
+      display: flex;
+      flex-direction: column;
+
+      label {
+        margin-bottom: 0.4rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        color: #1976d2;
+      }
+
+      input,
+      select {
+        padding: 0.6rem 0.9rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        border: 1.5px solid #cbd5e1;
+        transition: border-color 0.2s ease;
+
+        &:focus {
+          border-color: #1976d2;
+          outline: none;
+          box-shadow: 0 0 6px #1976d280;
+        }
+
+        &[readonly] {
+          background: #f0f4f8;
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    button[type='submit'],
+    button[type='button'] {
+      margin-top: 1rem;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.65rem 1.6rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      align-self: flex-end;
+    }
+
+    button[type='submit'] {
+      background-color: #1976d2;
+      color: #fff;
+      border: none;
+
+      &:hover {
+        background-color: #115293;
+      }
+
+      &:disabled {
+        background-color: #90caf9;
+        cursor: not-allowed;
+      }
+    }
+
+    button[type='button'] {
+      background-color: transparent;
+      border: 2px solid #1976d2;
+      color: #1976d2;
+
+      &:hover {
+        background-color: #1976d2;
+        color: white;
+      }
+    }
+  }
+
+  h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #1976d2;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 1rem;
+    color: #444;
+
+    thead {
+      background-color: #e3f2fd;
+
+      th {
+        text-align: left;
+        padding: 0.8rem 1rem;
+        font-weight: 700;
+        color: #0d47a1;
+        border-radius: 8px 8px 0 0;
+      }
+    }
+
+    tbody tr {
+      background-color: #fafafa;
+      box-shadow: 0 1px 4px rgba(25, 118, 210, 0.1);
+      border-radius: 8px;
+
+      td {
+        padding: 0.8rem 1rem;
+        vertical-align: middle;
+      }
+
+      td:last-child {
+        display: flex;
+        gap: 0.6rem;
+
+        button {
+          padding: 0.45rem 1rem;
+          font-size: 0.9rem;
+          font-weight: 600;
+          border-radius: 6px;
+          border: none;
+          cursor: pointer;
+          background-color: #1976d2;
+          color: #fff;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #115293;
+          }
+
+          &:last-child {
+            background-color: #e53935;
+
+            &:hover {
+              background-color: #b71c1c;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  span.enabled {
+    color: #388e3c;
+    font-weight: 600;
+  }
+
+  span.blocked {
+    color: #d32f2f;
+    font-weight: 600;
+  }
+
+  /* RESPONSIVO */
+  @media (max-width: 600px) {
+    padding: 1.5rem 1rem;
+
+    form {
+      > div {
+        flex: 1 1 100%;
+      }
+
+      button[type='submit'],
+      button[type='button'] {
+        width: 100%;
+        align-self: stretch;
+        margin-left: 0;
+      }
+    }
+
+    table {
+      font-size: 0.9rem;
+
+      thead {
+        display: none;
+      }
+
+      tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        border-radius: 10px;
+
+        td {
+          display: flex;
+          justify-content: space-between;
+          padding: 0.4rem 0;
+          border-bottom: 1px solid #eee;
+
+          &:last-child {
+            border-bottom: none;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+
+            button {
+              flex: 1 1 48%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+SELECT * FROM folha_salarial.alteracoes_folha;

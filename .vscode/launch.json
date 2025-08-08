@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SalarioApplication<salario>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "folhapagamento.salario.SalarioApplication",
+            "projectName": "salario",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

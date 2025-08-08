@@ -1,0 +1,19 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "172.24.128.1",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "ivan",
+            "database": "folha_salarial",
+            "username": "sigammef"
+        }
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
+}

@@ -1,0 +1,102 @@
+<header class="dashboard-header">
+  <span>
+    <span class="material-icons" style="vertical-align: middle; font-size: 2rem; margin-right: 0.5rem;">dashboard</span>
+    Bem-vindo à <strong>Folha</strong>
+  </span>
+</header>
+
+<div class="dashboard-layout">
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-logo">
+        <span class="material-icons" style="font-size: 2.5rem; color: #fff; background: #1565c0; border-radius: 50%; padding: 0.5rem;">account_balance</span>
+      </div>
+      <h2>Folha</h2>
+      <div class="sidebar-user-info">
+        <div class="user-avatar">
+          <span class="material-icons" style="font-size: 2rem;">person</span>
+        </div>
+        <div>
+          <p><strong>{{ username }}</strong></p>
+          <p style="font-size: 0.9em; opacity: 0.8;"><span class="material-icons" style="font-size: 1rem; vertical-align: middle;">verified_user</span> {{ role }}</p>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <!-- Técnico de RH -->
+      <ul *ngIf="role === 'RH'">
+        <li (click)="navigateTo('cadastro-servidor')" [class.active]="activeMenu === 'cadastro-servidor'">
+          <span class="material-icons">person_add</span> Cadastro/Edição Servidor
+        </li>
+        <li (click)="navigateTo('historico-alteracoes')" [class.active]="activeMenu === 'historico-alteracoes'">
+          <span class="material-icons">history</span> Histórico de Alterações
+        </li>
+        <li (click)="navigateTo('alertas-automaticos')" [class.active]="activeMenu === 'alertas-automaticos'">
+          <span class="material-icons">notifications_active</span> Alertas Automáticos
+        </li>
+        <li (click)="navigateTo('upload-documentos')" [class.active]="activeMenu === 'upload-documentos'">
+          <span class="material-icons">cloud_upload</span> Upload de Documentos
+        </li>
+      </ul>
+
+      <!-- Auditor -->
+      <ul *ngIf="role === 'AUDITOR'">
+        <li (click)="navigateTo('dashboard-alertas')" [class.active]="activeMenu === 'dashboard-alertas'">
+          <span class="material-icons">dashboard_customize</span> Dashboard de Alertas
+        </li>
+        <li (click)="navigateTo('filtros-alertas')" [class.active]="activeMenu === 'filtros-alertas'">
+          <span class="material-icons">filter_alt</span> Filtros e Pesquisa
+        </li>
+        <li (click)="navigateTo('linha-tempo-logs')" [class.active]="activeMenu === 'linha-tempo-logs'">
+          <span class="material-icons">timeline</span> Linha do Tempo
+        </li>
+        <li (click)="navigateTo('processos-investigacao')" [class.active]="activeMenu === 'processos-investigacao'">
+          <span class="material-icons">search</span> Processos de Investigação
+        </li>
+        <li (click)="navigateTo('relatorios-pdf')" [class.active]="activeMenu === 'relatorios-pdf'">
+          <span class="material-icons">picture_as_pdf</span> Exportar Relatórios PDF
+        </li>
+      </ul>
+
+      <!-- Servidor Público -->
+      <ul *ngIf="role === 'SERVIDOR'">
+        <li (click)="navigateTo('prova-vida')" [class.active]="activeMenu === 'prova-vida'">
+          <span class="material-icons">verified_user</span> Prova de Vida
+        </li>
+        <li (click)="navigateTo('historico-prova-vida')" [class.active]="activeMenu === 'historico-prova-vida'">
+          <span class="material-icons">history_edu</span> Histórico de Provas
+        </li>
+        <li (click)="navigateTo('notificacoes-bloqueio')" [class.active]="activeMenu === 'notificacoes-bloqueio'">
+          <span class="material-icons">block</span> Notificações de Bloqueio
+        </li>
+      </ul>
+
+      <!-- Admin pode ver tudo (opcional) -->
+      <ul *ngIf="role === 'ADMIN'">
+        <li (click)="navigateTo('registar-usuario')" [class.active]="activeMenu === 'registar-usuario'">
+          <span class="material-icons">group_add</span> Gestão de Utilizadores
+        </li>
+        <li (click)="navigateTo('logs-sessoes')" [class.active]="activeMenu === 'logs-sessoes'">
+          <span class="material-icons">list_alt</span> Logs de Sessões
+        </li>
+        <li (click)="navigateTo('gestao-alertas')" [class.active]="activeMenu === 'gestao-alertas'">
+          <span class="material-icons">warning</span> Gestão de Alertas
+        </li>
+      </ul>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="logout-btn" (click)="logout()">
+        <span class="material-icons" style="vertical-align: middle;">logout</span> Sair
+      </button>
+    </div>
+  </aside>
+
+  <main class="dashboard-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
+
+<!-- Opcional: Remova o debug em produção -->
+<!-- <p style="color:red">DEBUG role: {{ role }}</p> -->

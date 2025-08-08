@@ -1,0 +1,41 @@
+<div class="investigacao-form-container">
+  <h2>Iniciar Processo de Investigação</h2>
+  <div class="dados-alteracao-container" *ngIf="nomeServidor">
+    <h3>Dados da Alteração Selecionada</h3>
+    <div><strong>Servidor:</strong> {{ nomeServidor }}</div>
+    <div><strong>Campos Modificados:</strong> {{ camposModificados }}</div>
+    <div><strong>ID Servidor:</strong> {{ idServidor }}</div>
+    <button (click)="mostrarFormulario = true" class="btn-iniciar">Iniciar Investigação</button>
+  </div>
+
+  <form *ngIf="mostrarFormulario" (ngSubmit)="iniciarInvestigacao()" class="form-grid">
+    <div>
+      <label>Servidor:</label>
+      <input type="text" [(ngModel)]="nomeServidor" name="nomeServidor" readonly />
+    </div>
+    <div>
+      <label>Campos Modificados:</label>
+      <input type="text" [(ngModel)]="camposModificados" name="camposModificados" readonly />
+    </div>
+    <div>
+      <label>Funcionário Responsável:</label>
+      <input type="text" [(ngModel)]="funcionarioResponsavel" name="funcionarioResponsavel" required />
+    </div>
+    <div>
+      <label>Comentários:</label>
+      <textarea [(ngModel)]="comentarios" name="comentarios" rows="3"></textarea>
+    </div>
+    <div>
+      <label>Estado:</label>
+      <select [(ngModel)]="estado" name="estado" required>
+        <option value="EM_ANALISE">Em Análise</option>
+        <option value="FECHADO">Fechado</option>
+        <option value="ARQUIVADO">Arquivado</option>
+      </select>
+    </div>
+    <div class="botoes-form">
+      <button type="submit" *ngIf="estado === 'EM_ANALISE'">Iniciar Investigação</button>
+      <button type="button" *ngIf="estado === 'FECHADO' || estado === 'ARQUIVADO'" (click)="resolverSituacao()">Resolver a Situação</button>
+    </div>
+  </form>
+</div>

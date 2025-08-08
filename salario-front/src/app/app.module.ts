@@ -25,6 +25,7 @@ import { DashboardAlertasComponent } from './dashboard-alertas/dashboard-alertas
 import { NgChartsModule } from 'ng2-charts';
 
 import { InvestigacaoFormComponent } from './investigacao-form/investigacao-form.component';
+import { ExportarCasosPdfComponent } from './exportar-casos-pdf/exportar-casos-pdf.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { InvestigacaoFormComponent } from './investigacao-form/investigacao-form
     NavComponent,
     DashboardAlertasComponent,
     InvestigacaoFormComponent,
+    ExportarCasosPdfComponent,
     
     
     

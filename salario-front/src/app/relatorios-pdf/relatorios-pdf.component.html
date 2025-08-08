@@ -1,0 +1,24 @@
+<div class="casos-container">
+  <h2>Casos Resolvidos</h2>
+  <table class="casos-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Nome do Caso</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let caso of casos">
+        <td>
+          <input type="radio" name="casoSelecionado" [(ngModel)]="casoSelecionado" [value]="caso">
+        </td>
+        <td>{{ caso.titulo }}</td>
+        <td>{{ caso.estado }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="imprimir-btn" (click)="imprimirPDF()" [disabled]="!casoSelecionado">
+    <span class="material-icons" style="vertical-align: middle;">picture_as_pdf</span> Imprimir PDF
+  </button>
+</div>

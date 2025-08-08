@@ -7,6 +7,7 @@ import { CadastroServidorComponent } from './cadastro-servidor/cadastro-servidor
 import { TimelineComponent } from './timeline/timeline.component';
 import { DashboardAlertasComponent } from './dashboard-alertas/dashboard-alertas.component';
 import { InvestigacaoFormComponent } from './investigacao-form/investigacao-form.component';
+import { ExportarCasosPdfComponent } from './exportar-casos-pdf/exportar-casos-pdf.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
       { path: 'cadastro-servidor', component: CadastroServidorComponent },
       { path: 'linha-tempo-logs', component: TimelineComponent },
       { path: 'dashboard-alertas', component: DashboardAlertasComponent },
-      { path: 'investigacao-form', component: InvestigacaoFormComponent }
+      { path: 'investigacao-form', component: InvestigacaoFormComponent },
+      { path: 'exportar-casos-pdf', component: ExportarCasosPdfComponent }
     ]
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },

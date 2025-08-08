@@ -1,0 +1,10 @@
+<h2>Exportar Casos Resolvidos para PDF</h2>
+<form>
+  <div *ngFor="let caso of casos">
+    <label>
+      <input type="checkbox" [(ngModel)]="caso.selecionado" name="caso{{caso.id}}">
+      {{ caso.nome }}
+    </label>
+  </div>
+  <button type="button" (click)="exportarPDF()">Imprimir PDF</button>
+</form>
